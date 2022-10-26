@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content%}
+<div>
+    <div class="border rounded-3 col p-2 text-center centered-form center-block position-relative ">
+        <h3>Notes</h3>
+            {% for note in object_list %}
+                <div class="card container col-md-10 col-md-offset-1">
+                    <div class="card-body">
+                        <br>
+                            <h1 class="card-title text-capitalize"><strong>Category: {{note.category}}</strong></a></h1>
+                            <h1 class="card-title text-capitalize"><a href="{% url 'note_detail_view' note.pk %}"><strong>Name:</strong> {{note.name}}</a></h1>
+                            <h5 class="card-title text-capitalize">Written by: {{note.author}}</h5>
+                        {% if user.id == note.author.id %}
+                            <a href="{% url 'update_note_view' note.pk %}">Edit</a>
+                            <a href="{% url 'delete_note_view' note.pk %}" class="card-link text-danger"><i class="fas fa-dumpster"></i></a>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+    </div>
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; First Page</a>
+                <a href="?page={{ page_obj.previous_page_number }}">Previous Page</a>
+            {% endif %}
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">Next Page</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">Last Page &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+</div>
+
+
+{% endblock content %}

@@ -1,0 +1,19 @@
+1. Pirmiausia reikia uzsiregistruoti/prisijungti ir tik tada galima matyti likusi puslapio turini.
+2. Bet kas gali prideti kategorija, irasa, matyti kitu sukurtus dalykus, taciau redaguoti/istrinti galima tik savo sukurtus.
+3. Nuotraukos faila galima ideti naudojant image formos vieta, arba virs textarea esancia eilute, taciau ten tinka tik
+        nuotraukos url. Naudojant eilute virs textarea galima ir siaip daugiau funkciju atlikti su uzrasu.
+3. Uzrasu bendrame puslapyje galima matyti isvardintas uzrasu kategorijas, pavadinimus ir kas juos sukure. Paspaudus ant
+        pavadinimo (name), atidarome konkretu uzrasa ir jame jau matome uzraso teksta.
+
+
+admin username:
+                vigi
+password:
+                123
+
+vartotojai:
+    Rasa    pasvordas
+    Laurynas    slaptazodis
+    Lukas   pasv1234
+
+

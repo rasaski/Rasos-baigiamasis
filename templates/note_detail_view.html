@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content%}
+
+
+<div class="card container col-md-10 col-md-offset-1">
+    <div class="card-body">
+        <br>
+        <h1 class="card-title text-capitalize"><strong>Category:</strong> {{note.category}}</h1>
+        <br>
+        <h1 class="card-title text-capitalize"><strong>Name:</strong> {{note.name}}</h1>
+        <br><br>
+        <h5 class="card-title text-capitalize"> <strong>Written by:</strong> {{note.author}}</h5>
+        <br>
+            {% if note.image %}
+                <img src="{{ note.image.url }}" width="300" height="300">
+        <br>
+            {% endif %}
+        <p class="card-title text-capitalize">{{note.note|safe}}</p>
+        <br>
+            {% if user.id == note.author.id %}
+                <a href="{% url 'update_note_view' note.pk %}">Edit</a>
+                <a href="{% url 'delete_note_view' note.pk %}" class="card-link text-danger"><i class="fas fa-dumpster"></i></a>
+            {% endif %}
+        <a href="{% url 'note_list_view' %}">Back</a>
+    </div>
+</div>
+
+{% endblock content %}
